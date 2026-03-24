@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeastFlow Navbar</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("images.jpg"); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #362a02;
+            color: white;
+            padding: 10px 20px; 
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box; 
+        }
+
+        .navbar .title {
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .navbar .nav {
+            float: right;
+            margin-top: 5px; 
+        }
+
+        .navbar .nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            color: aliceblue;
+            padding-top: 60px; 
+            text-align: center;
+        }
+
+        .content h1 {
+            margin-bottom: 20px;
+        }
+
+        .category-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-buttons button {
+            background-color: #4a3703;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .category-buttons button:hover {
+            background-color: #362a02;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #362a02;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">FeastFlow</div>
+        <div class="nav">
+            <a href="home.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="item_registration.html">Item Registration</a>
+            <a href="card.html">Card</a>
+            <a href="logout.html">Logout</a>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to FeastFlow</h1>
+        <p>Your one-stop solution for managing your feasts.</p>
+
+        <div class="category-buttons">
+            <button>Starters</button>
+            <button>Desserts</button>
+            <button>Snacks</button>
+            <button>Vegetarian</button>
+            <button>Soft Drinks</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 FeastFlow. All rights reserved.
+    </div>
+</body>
+</html>

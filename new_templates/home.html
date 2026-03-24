@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeastFlow - Food Items</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("images.jpg"); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #362a02;
+            color: white;
+            padding: 10px 20px; 
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box; 
+        }
+
+        .navbar .title {
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .navbar .nav {
+            float: right;
+            margin-top: 5px; 
+        }
+
+        .navbar .nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            color: aliceblue;
+            padding-top: 60px; 
+            text-align: center;
+            padding: 20px;
+        }
+
+        .item-card {
+            display: inline-block;
+            color: black;
+            background-color: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .item-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .item-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .item-price, .item-type, .item-rating {
+            margin: 5px 0;
+        }
+
+        .add-to-cart {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #362a02;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">FeastFlow</div>
+        <div class="nav">
+            <a href="navigation.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="item_registration.html">Item Registration</a>
+            <a href="card.html">Card</a>
+            <a href="logout.html">Logout</a>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Available Food Items</h1>
+        
+        <!-- Example Item Card -->
+        <div class="item-card">
+            <img src="ButterChicken.jpg" alt="Pizza">
+            <div class="item-name">ButterChicken</div>
+            <div class="item-price">Price: $8.99</div>
+            <div class="item-type">Type: Vegetarian</div>
+            <div class="item-rating">Rating: 4.5/5</div>
+            <a href="#" class="add-to-cart">Add to Cart</a>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 FeastFlow. All rights reserved.
+    </div>
+</body>
+</html>

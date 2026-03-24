@@ -1,0 +1,69 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | FeastFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  </head>
+  <body class="feastflow-bg">
+    <div class="feastflow-overlay">
+    {% include 'navbar.html' %}
+    <main class="feastflow-page">
+    <div class="feastflow-shell">
+    <h1 class="feastflow-heading">Order your favorite food on your favorite app now</h1></div>
+    {% for i in messages %}
+    <div class="feastflow-alerts">
+      <div class="alert alert-{{ i.tags }}">
+        {{ i }}
+      </div>
+    </div>
+    {% endfor %}
+    <div class="feastflow-shell" align="center">
+      <form method="POST" class="filter-form"> {% csrf_token %}
+        <div class="button-container">
+          <button class="custom-button" type="submit" name="items" value="Veg">Vegetarian</button>
+          <button class="custom-button" type="submit" name="items" value="Nonveg">Snacks</button>
+          <button class="custom-button" type="submit" name="items" value="Drink">Drinks</button>
+          <button class="custom-button" type="submit" name="items" value="Dessert">Desserts</button>
+          <button class="custom-button" type="submit" name="items" value="Starter">Starters</button>
+      </div>
+      
+
+  </form>
+  </div>
+    
+  <div class="feastflow-shell">
+    <div class="row feastflow-grid">
+      {% for i in all %}
+
+      <div class="col-6 col-xl-3 home-product-col">
+        
+        <div class="card feastflow-card food-listing-card">
+
+            <div class="card-body food-card-body">
+              <a href="{% url 'single' i.id %}" style="text-decoration: none; color: black"><img src="{{ i.itempic.url }}" alt="image" class="food-card-image"></a>
+              <div class="food-meta-row">
+                <span class="veg-badge" aria-hidden="true"></span>
+                <span class="rating-pill">★ {{ i.rating }}</span>
+              </div>
+              <h4 class="food-title">{{ i.itemname }}</h4>
+              <div class="food-subtext">Availability: {% if i.availability %}Yes{% else %}No{% endif %}</div>
+              <div class="food-action-row">
+                <div class="food-price">₹{{ i.price }}</div>
+                <a href="{% url 'cart' i.id %}" class="food-add-link"><button class="btn food-add-btn">ADD</button></a>
+              </div>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+    </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

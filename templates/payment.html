@@ -1,0 +1,120 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment | FeastFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+</head>
+
+<body class="feastflow-bg">
+    <div class="feastflow-overlay">
+    {% include 'navbar.html' %}
+    <main class="feastflow-page">
+    <div class="feastflow-shell payment-shell" style="max-width: 1100px;">
+        <div class="feastflow-panel payment-panel">
+            <div class="card-header">
+                <strong><h3 style="color: beige;">Complete payment</h3></strong>
+            </div><hr>
+            <div class="row g-4 align-items-start">
+                <div class="col-12 col-lg-7">
+                    <div class="payment-summary">
+                    <p><strong>Deliver to:</strong> {{ delivery.addr }}</p>
+                    <p><strong>Contact:</strong> {{ delivery.phno }}</p>
+                    <p><strong>Amount to pay:</strong> Rs. {{ total }}</p>
+                    <p><strong>Items:</strong></p>
+                    <ul class="payment-items">
+                        {% for item in cart_items %}
+                        <li>{{ item.item.itemname }} x {{ item.quantity }}</li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <div class="payment-methods">
+                    <div class="card mb-3 feastflow-card payment-card">
+                        <div class="card-body">
+                            <h5>Online Payment</h5>
+                            <p class="text-muted">Pay securely with Razorpay using UPI, card, netbanking, or wallet.</p>
+                            {% if razorpay_ready %}
+                            <button id="rzp-button" type="button" class="btn btn-success w-100">Pay with Razorpay</button>
+                            {% else %}
+                            <button type="button" class="btn btn-secondary w-100" disabled>Razorpay unavailable</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card feastflow-card payment-card">
+                        <div class="card-body">
+                            <h5>Cash on Delivery</h5>
+                            <p class="text-muted">Place the order now and pay when it arrives.</p>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-dark w-100">Use Cash on Delivery</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="verify-form" method="POST" action="{% url 'verify_payment' %}" style="display: none;">
+            {% csrf_token %}
+            <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+            <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+            <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+        </form>
+
+        {% for i in messages %}
+        <div class="alert alert-{{ i.tags }} mt-3">
+            {{ i }}
+        </div>
+        {% endfor %}
+    </div>
+    </main>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        const razorpayReady = {{ razorpay_ready|yesno:"true,false" }};
+        if (razorpayReady) {
+            const options = {
+                key: "{{ razorpay_key_id }}",
+                amount: "{{ razorpay_amount }}",
+                currency: "INR",
+                name: "FeastFlow",
+                description: "Food order payment",
+                order_id: "{{ razorpay_order_id }}",
+                handler: function (response) {
+                    document.getElementById("razorpay_order_id").value = response.razorpay_order_id;
+                    document.getElementById("razorpay_payment_id").value = response.razorpay_payment_id;
+                    document.getElementById("razorpay_signature").value = response.razorpay_signature;
+                    document.getElementById("verify-form").submit();
+                },
+                prefill: {
+                    name: "{{ request.user.get_full_name|default:request.user.username }}",
+                    email: "{{ request.user.email }}",
+                    contact: "{{ delivery.phno }}"
+                },
+                theme: {
+                    color: "#6a3a18"
+                }
+            };
+
+            const razorpayInstance = new Razorpay(options);
+            document.getElementById("rzp-button").addEventListener("click", function () {
+                razorpayInstance.open();
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrY0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

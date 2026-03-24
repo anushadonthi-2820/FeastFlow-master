@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeastFlow Item Registration</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("images.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #362a02;
+            color: white;
+            padding: 10px 20px;
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .navbar .title {
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .navbar .nav {
+            float: right;
+            margin-top: 5px;
+        }
+
+        .navbar .nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .item-registration-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 80px auto 60px;
+        }
+
+        .item-registration-box h2 {
+            margin: 0 0 20px;
+            color: #362a02;
+        }
+
+        .item-registration-box .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .item-registration-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .item-registration-box input[type="text"],
+        .item-registration-box input[type="number"],
+        .item-registration-box input[type="file"],
+        .item-registration-box select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .item-registration-box button {
+            background-color: #362a02;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .item-registration-box button:hover {
+            background-color: #4a3d24;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #362a02;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">FeastFlow</div>
+        <div class="nav">
+            <a href="home.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="register_item.html">Item Registration</a>
+            <a href="card.html">Card</a>
+            <a href="logout.html">Logout</a>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <div class="item-registration-box">
+        <h2>Register Your Item</h2>
+        <form action="/register-item" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="item-image">Choose the pic to upload</label>
+                <input type="file" id="item-image" name="item_image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="item-name">Name of the item</label>
+                <input type="text" id="item-name" name="item_name" placeholder="Name of the item" required>
+            </div>
+
+            <div class="form-group">
+                <label for="item-price">Price of the item</label>
+                <input type="number" id="item-price" name="item_price" placeholder="Price of the item" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="item-type">Type of the item</label>
+                <input type="text" id="item-type" name="item_type" placeholder="Type of the item" required>
+            </div>
+
+            <div class="form-group">
+                <label for="item-rating">Rating</label>
+                <input type="number" id="item-rating" name="item_rating" placeholder="Rating" step="0.1" min="0" max="5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Is the item available or not?</label>
+                <label><input type="radio" name="item_available" value="yes" required> Yes</label>
+                <label><input type="radio" name="item_available" value="no" required> No</label>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 FeastFlow. All rights reserved.
+    </div>
+</body>
+</html>

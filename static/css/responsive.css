@@ -1,0 +1,437 @@
+.feastflow-bg {
+    background-image: url("../images/images.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.feastflow-overlay {
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(23, 16, 10, 0.45), rgba(23, 16, 10, 0.7));
+}
+
+.feastflow-page {
+    padding: 1rem 0 2rem;
+}
+
+.feastflow-shell {
+    width: min(100% - 1.5rem, 1180px);
+    margin: 0 auto;
+}
+
+.feastflow-card {
+    background-color: rgba(255, 248, 239, 0.93);
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    height: 100%;
+}
+
+.feastflow-panel {
+    background-color: rgba(106, 58, 24, 0.78);
+    color: beige;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+.feastflow-heading {
+    color: beige;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.feastflow-alerts {
+    width: min(100% - 1.5rem, 720px);
+    margin: 0 auto 1rem;
+}
+
+.feastflow-grid {
+    row-gap: 1rem;
+}
+
+.food-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.food-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.food-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.veg-badge {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #0f8a65;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.veg-badge::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #0f8a65;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rating-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #e8f8f1;
+    color: #0f8a65;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    line-height: 1;
+}
+
+.food-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #2d241e;
+}
+
+.food-subtext {
+    color: #73665d;
+    font-size: 0.92rem;
+}
+
+.food-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.food-price {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #2d241e;
+}
+
+.food-add-link {
+    text-decoration: none;
+}
+
+.food-add-btn {
+    min-width: 120px;
+    min-height: 52px;
+    border: 1px solid #d5d5d5;
+    border-radius: 1rem;
+    background: #fff;
+    color: #18a172;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.filter-form {
+    margin-bottom: 1.25rem;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.custom-button {
+    background-color: rgb(24, 103, 122);
+    color: beige;
+    border: none;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    width: 100%;
+    text-align: center;
+}
+
+.custom-button:hover {
+    background-color: rgb(19, 83, 98);
+}
+
+.navbar-shell {
+    background-color: rgba(0, 0, 0, 0.68);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar-user-chip {
+    background-color: beige;
+    color: #164f8c;
+    border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+}
+
+.navbar-actions,
+.stack-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.stack-actions {
+    justify-content: center;
+}
+
+.search-form {
+    gap: 0.75rem;
+}
+
+.search-form .form-control,
+.search-form .btn {
+    min-height: 44px;
+}
+
+.invoice-table-wrap {
+    overflow-x: auto;
+}
+
+.info-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.summary-card {
+    position: sticky;
+    top: 1rem;
+}
+
+.payment-shell {
+    padding-bottom: 2rem;
+}
+
+.payment-panel {
+    background-color: rgba(106, 58, 24, 0.86);
+}
+
+.payment-summary {
+    color: beige;
+    display: grid;
+    gap: 1rem;
+    line-height: 1.55;
+}
+
+.payment-summary p {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.payment-items {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.payment-methods {
+    display: grid;
+    gap: 1rem;
+}
+
+.payment-card {
+    border-radius: 1.4rem;
+    min-height: auto;
+}
+
+.payment-card .card-body {
+    padding: 1.25rem;
+}
+
+.payment-card h5 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.payment-card p {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .feastflow-page {
+        padding-top: 1.5rem;
+    }
+
+    .button-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feastflow-panel {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .feastflow-shell {
+        width: min(100% - 1.75rem, 980px);
+    }
+
+    .feastflow-heading {
+        text-align: left;
+        font-size: clamp(1.8rem, 3.8vw, 2.4rem);
+        padding-inline: 0;
+    }
+
+    .food-listing-card {
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .home-product-col {
+        padding-left: 0.45rem;
+        padding-right: 0.45rem;
+    }
+
+    .food-card-body {
+        background: #fff;
+        border-radius: 1.5rem;
+        padding: 0;
+        gap: 0.55rem;
+    }
+
+    .food-card-image {
+        border-radius: 1.5rem;
+        aspect-ratio: 1 / 1;
+    }
+
+    .food-meta-row,
+    .food-title,
+    .food-subtext,
+    .food-action-row {
+        padding-inline: 0;
+    }
+
+    .food-price {
+        font-size: 1.45rem;
+    }
+
+    .food-add-btn {
+        min-width: 92px;
+        min-height: 42px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.95rem;
+        background: #fff;
+    }
+
+    .payment-panel {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .button-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .custom-button {
+        font-size: 0.95rem;
+        padding: 0.8rem 0.75rem;
+    }
+
+    .food-title {
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .food-subtext {
+        font-size: 0.75rem;
+    }
+
+    .food-price {
+        font-size: 1.05rem;
+    }
+
+    .food-add-btn {
+        min-width: 80px;
+        min-height: 38px;
+        font-size: 0.9rem;
+        border-radius: 0.85rem;
+    }
+
+    .rating-pill {
+        font-size: 0.85rem;
+        padding: 0.2rem 0.55rem;
+    }
+
+    .veg-badge {
+        width: 16px;
+        height: 16px;
+    }
+
+    .veg-badge::after {
+        width: 7px;
+        height: 7px;
+    }
+
+    .food-action-row {
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .button-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .feastflow-heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .food-listing-card .card-body {
+        padding: 1rem;
+    }
+
+    .food-listing-card .food-card-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .food-listing-card .food-title {
+        font-size: 1.25rem;
+    }
+
+    .food-listing-card .food-price {
+        font-size: 1.5rem;
+    }
+
+    .food-listing-card .food-add-btn {
+        min-width: 110px;
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    .payment-panel {
+        padding: 1.75rem;
+    }
+
+    .payment-summary {
+        padding-right: 1rem;
+    }
+}
